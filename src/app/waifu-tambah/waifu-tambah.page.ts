@@ -12,6 +12,7 @@ export class WaifuTambahPage implements OnInit {
   id: any;
   waifu_name: any;
   keterangan: any;
+  gambar: any;
   constructor(
     private router: Router,
     public _apiService: ApiService,
@@ -23,6 +24,7 @@ export class WaifuTambahPage implements OnInit {
     let data = {
       waifu_name: this.waifu_name,
       keterangan: this.keterangan,
+      gambar: this.gambar,
     };
     this._apiService.tambah(data, '/tambahWaifu.php').subscribe({
       next: (hasil: any) => {
@@ -30,6 +32,7 @@ export class WaifuTambahPage implements OnInit {
         this.id = '';
         this.waifu_name = '';
         this.keterangan = '';
+        this.gambar = '';
         this._apiService.notif('Berhasil input Waifu');
         this.router.navigateByUrl('/home');
       },

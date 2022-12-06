@@ -25,3 +25,17 @@
 #container a {
   text-decoration: none;
 }
+ion-fab-button {
+  --background: #3CB371;
+  --background-activated: #228B22;
+  --background-hover: #2E8B57;
+  --border-radius: 15px;
+  --box-shadow: 0px 1px 2px 0px rgba(0,0,0,.3), 0px 1px 3px 1px rgba(0,0,0,.15);
+  --color: black;
+}
+h1 {
+  text-align: center;
+}
+h2 {
+  text-align: center;
+}

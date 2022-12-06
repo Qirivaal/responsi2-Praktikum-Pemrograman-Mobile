@@ -12,6 +12,7 @@ export class WaifuEditPage implements OnInit {
   id: any;
   waifu_name: any;
   keterangan: any;
+  gambar: any;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -34,6 +35,7 @@ export class WaifuEditPage implements OnInit {
         let waifu = hasil;
         this.waifu_name = waifu.waifu_name;
         this.keterangan = waifu.keterangan;
+        this.gambar = waifu.gambar
       },
       error: (error: any) => {
         this._apiService.notif('gagal ambil data');
@@ -46,6 +48,7 @@ export class WaifuEditPage implements OnInit {
       id: this.id,
       waifu_name: this.waifu_name,
       keterangan: this.keterangan,
+      gambar: this.gambar,
     };
     this._apiService.edit(data, '/editWaifu.php').subscribe({
       next: (hasil: any) => {

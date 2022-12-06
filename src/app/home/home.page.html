@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Home Aplikasi</ion-title>
+    <ion-title>Home</ion-title>
     <ion-buttons slot="end" (click)="logout()">
       <ion-icon slot="start" ios="exit-outline" md="exit-sharp"></ion-icon>
     <ion-label>Logout</ion-label>
@@ -10,25 +10,32 @@
 <ion-content>
   <hr>
   <h1>Selamat datang {{ nama }}</h1>
+  <h2>Ini adalah Daftar Waifu kamu tercinta</h2>
   <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Tarik Untuk Memuat Data"
       refreshingSpinner="circles" refreshingText="Memuat Ulang Data...">
     </ion-refresher-content>
   </ion-refresher>
   <hr>
-  <ion-card>
-    <ion-button color="success" expand="block" (click)="tambahWaifu()">Tambah Waifu</ion-button>
-  </ion-card>
-  <hr>
   <ion-card *ngFor="let item of lists">
     <ion-item>
+      <img [src]="item.gambar" alt="item.waifu_name" slot="start" height="50" width="50">
       <ion-label>
         {{item.id}}. {{item.waifu_name}}
         <p>{{item.keterangan}}</p>
       </ion-label>
       <ion-button color="primary" slot="end" [routerLink]="['/waifu-edit/',item.id]"
-        routerLinkActive="router-link-active">Edit</ion-button>
-      <ion-button color="danger" slot="end" (click)="deleteWaifu(item.id)">Hapus</ion-button>
+        routerLinkActive="router-link-active">
+        <ion-icon name="pencil-outline"></ion-icon>
+      </ion-button>
+      <ion-button color="danger" slot="end" (click)="deleteWaifu(item.id)">
+        <ion-icon name="close-circle"></ion-icon>
+      </ion-button>
     </ion-item>
   </ion-card>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="tambahWaifu()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
