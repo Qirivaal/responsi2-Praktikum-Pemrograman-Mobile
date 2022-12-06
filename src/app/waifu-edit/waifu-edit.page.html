@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Edit Waifu</ion-title>
+    <ion-buttons slot="end" (click)="logout()">
+      <ion-icon slot="start" ios="exit-outline" md="exit-sharp"></ion-icon>
+    <ion-label>Logout</ion-label>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">
+        Edit Waifu
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-list lines="full">
+    <ion-item>
+      <ion-label position="floating">Nama Waifu</ion-label>
+      <ion-input required [(ngModel)]="waifu_name" placeholder="Masukkan Nama Waifu" type="text">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Keterangan</ion-label>
+      <ion-input required [(ngModel)]="keterangan" placeholder="Masukkan Keterangan" type="text">
+      </ion-input>
+    </ion-item>
+    <ion-input required [(ngModel)]="id" type="hidden">
+    </ion-input>
+    <ion-row>
+      <ion-col>
+        <ion-button type="button" (click)="editWaifu()" color="primary" shape="full" expand="block">
+          Lets go Edit
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+</ion-content>
