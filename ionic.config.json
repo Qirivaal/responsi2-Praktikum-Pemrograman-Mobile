@@ -1,0 +1,7 @@
+{
+  "name": "responsi22",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
